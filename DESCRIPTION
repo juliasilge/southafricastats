@@ -3,11 +3,13 @@ Type: Package
 Title: Population and Mortality Statistics for South Africax
 Version: 0.1.0
 Authors@R: person("Julia", "Silge", email = "julia.silge@gmail.com", role = c("aut", "cre"))
-Description: An excerpt of the data available at southafrica.opendataforafrica.org. For each
-    of the nine provinces in South Africa, this package provides mortality from several 
-    causes from 2008 to 2013 and population numbers from 2011 to 2016.
+Description: An excerpt of the data available at
+    southafrica.opendataforafrica.org. For each of the nine provinces in South
+    Africa, this package provides mortality from several causes from 2008 to 2013
+    and population numbers from 2011 to 2016.
 URL: https://github.com/juliasilge/southafricastats
 BugReports: https://github.com/juliasilge/southafricastats/issues
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
+RoxygenNote: 5.0.1
