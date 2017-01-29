@@ -41,13 +41,16 @@ There are two datasets in this package. The first one, `population`, contains to
 library(ggplot2)
 
 ggplot(population, aes(year, total, color = province)) + 
-    geom_line(size = 1.5, alpha = 0.7) +
+    geom_line(size = 1.5, alpha = 0.7) + 
+    expand_limits(y = 0) +
     labs(x = NULL, y = "Total population")
 ```
 
 The second dataset, `mortality`, contains number of deaths due to various causes in the nine provinces for the years 2008 to 2013. What are the most common causes of death in these provinces?
 
 ```{r}
+library(dplyr)
+
 mortality %>%
     count(indicator, sort = TRUE)
 ```
@@ -60,6 +63,7 @@ mortality %>%
            province %in% c("Gauteng", "KwaZulu-Natal", "Eastern Cape")) %>%
     ggplot(aes(year, deaths, color = province)) +
     geom_line(size = 1.5, alpha = 0.7) +
+    expand_limits(y = 0) +
     labs(x = NULL, y = "Number of deaths")
     
 ```

@@ -37,7 +37,8 @@ There are two datasets in this package. The first one, `population`, contains to
 library(ggplot2)
 
 ggplot(population, aes(year, total, color = province)) + 
-    geom_line(size = 1.5, alpha = 0.7) +
+    geom_line(size = 1.5, alpha = 0.7) + 
+    expand_limits(y = 0) +
     labs(x = NULL, y = "Total population")
 ```
 
@@ -47,6 +48,8 @@ The second dataset, `mortality`, contains number of deaths due to various causes
 
 
 ```r
+library(dplyr)
+
 mortality %>%
     count(indicator, sort = TRUE)
 #> # A tibble: 18 × 2
@@ -82,6 +85,7 @@ mortality %>%
            province %in% c("Gauteng", "KwaZulu-Natal", "Eastern Cape")) %>%
     ggplot(aes(year, deaths, color = province)) +
     geom_line(size = 1.5, alpha = 0.7) +
+    expand_limits(y = 0) +
     labs(x = NULL, y = "Number of deaths")
 ```
 

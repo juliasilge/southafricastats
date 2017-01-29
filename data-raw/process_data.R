@@ -1,6 +1,8 @@
 ## This is the script used to clean/process the data downloaded from
 ## http://southafrica.opendataforafrica.org/
 
+## In addition to the dependencies in Suggests, this script requires
+## readr and devtools
 
 # mortality dataset ----------------------------------------------
 
