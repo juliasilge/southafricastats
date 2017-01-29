@@ -11,6 +11,13 @@ mortality <- read_csv("data-raw/ObservationData_cgjxleg.csv") %>%
 
 colnames(mortality) <- c("province", "indicator", "year", "deaths")
 
+## HIV indicator was missing a paranthesis
+
+mortality <- mortality %>%
+    mutate(indicator = ifelse(indicator == "Human immunodeficiency virus [HIV] disease (B20-B24",
+                              "Human immunodeficiency virus [HIV] disease (B20-B24)",
+                              indicator))
+
 devtools::use_data(mortality, overwrite = TRUE)
 
 
