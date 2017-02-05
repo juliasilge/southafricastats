@@ -20,4 +20,4 @@
 #' }
 #'
 #' @source \url{http://southafrica.opendataforafrica.org/cmsybyf/mortality-and-causes-of-death-in-south-africa-2008}
-"mortality"
+"mortality_zaf"

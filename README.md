@@ -27,13 +27,13 @@ install_github("juliasilge/southafricastats")
 
 ### Working with the datasets
 
-There are two datasets in this package. The first one, `population`, contains total population counts for the nine provinces in South Africa for the years 2011 to 2016.
+There are two datasets in this package. The first one, `population_zaf`, contains total population counts for the nine provinces in South Africa for the years 2011 to 2016.
 
 
 ```r
 library(ggplot2)
 
-ggplot(population, aes(year, total, color = province)) + 
+ggplot(population_zaf, aes(year, total, color = province)) + 
     geom_line(size = 1.5, alpha = 0.7) + 
     expand_limits(y = 0) +
     labs(x = NULL, y = "Total population")
@@ -41,13 +41,13 @@ ggplot(population, aes(year, total, color = province)) +
 
 ![plot of chunk unnamed-chunk-3](README-unnamed-chunk-3-1.png)
 
-The second dataset, `mortality`, contains number of deaths due to various causes in the nine provinces for the years 2008 to 2013. What are the most common causes of death in these provinces?
+The second dataset, `mortality_zaf`, contains number of deaths due to various causes in the nine provinces for the years 2008 to 2013. What are the most common causes of death in these provinces?
 
 
 ```r
 library(dplyr)
 
-mortality %>%
+mortality_zaf %>%
     count(indicator, sort = TRUE)
 #> # A tibble: 18 × 2
 #>                                                              indicator
@@ -77,7 +77,7 @@ How has the number of HIV deaths in Gauteng, KwaZulu-Natal, and Eastern Cape cha
 
 
 ```r
-mortality %>%
+mortality_zaf %>%
     filter(indicator == "Human immunodeficiency virus [HIV] disease (B20-B24)",
            province %in% c("Gauteng", "KwaZulu-Natal", "Eastern Cape")) %>%
     ggplot(aes(year, deaths, color = province)) +

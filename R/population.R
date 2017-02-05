@@ -16,4 +16,4 @@
 #' }
 #'
 #' @source \url{http://southafrica.opendataforafrica.org/qrglcbb/population-statistics-of-south-africa-2011}
-"population"
+"population_zaf"

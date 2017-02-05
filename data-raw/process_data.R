@@ -15,12 +15,12 @@ colnames(mortality) <- c("province", "indicator", "year", "deaths")
 
 ## HIV indicator was missing a paranthesis
 
-mortality <- mortality %>%
+mortality_zaf <- mortality %>%
     mutate(indicator = ifelse(indicator == "Human immunodeficiency virus [HIV] disease (B20-B24",
                               "Human immunodeficiency virus [HIV] disease (B20-B24)",
                               indicator))
 
-devtools::use_data(mortality, overwrite = TRUE)
+devtools::use_data(mortality_zaf, overwrite = TRUE)
 
 
 # population dataset ---------------------------------------------
@@ -32,7 +32,7 @@ colnames(population) <- c("province", "year", "total")
 
 ## lat/long came from Google Maps
 
-population <- population %>%
+population_zaf <- population %>%
     left_join(data_frame(province = c("Eastern Cape",
                                       "Free State",
                                       "Gauteng",
@@ -62,4 +62,4 @@ population <- population %>%
                                       -32.6116087))) %>%
     select(province, longitude, latitude, everything())
 
-devtools::use_data(population, overwrite = TRUE)
+devtools::use_data(population_zaf, overwrite = TRUE)
